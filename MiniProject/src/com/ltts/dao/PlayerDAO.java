@@ -1,0 +1,40 @@
+package com.ltts.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ltts.configuration.MyConnection;
+import com.ltts.model.Player;
+
+public class PlayerDAO {
+
+	public List<Player> getAllPlayers(){
+		List<Player> li=new ArrayList<Player>();
+		
+		return li;
+		}
+		
+		public Player getPlayerById(int id) {
+			Player p = new Player();
+				
+			return p;
+		}
+		
+			public boolean insertPlayer(Player p) throws Exception
+			{
+				Connection c= MyConnection.getConnection();
+				PreparedStatement ps= c.prepareStatement("insert into player values(?,?,?,?,?,?,?)");
+				ps.setInt(1, p.getPlayer_id());
+				ps.setString(2, p.getName());
+				ps.setString(3, p.getSkills());
+				ps.setInt(4, p.getRuns());
+				ps.setInt(5, p.getWickets());
+				ps.setInt(6, p.getNumber_of_matches());
+				ps.setInt(7, p.getTeam_id());
+				return ps.execute();
+			}
+				
+	}
