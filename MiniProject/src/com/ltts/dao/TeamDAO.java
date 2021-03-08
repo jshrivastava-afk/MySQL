@@ -20,7 +20,7 @@ public class TeamDAO {
 			
 		return t;
 	}
-	public boolean insertPlayer(Team t) throws Exception
+	public boolean insertTeam(Team t) throws Exception
 	{
 		Connection c= MyConnection.getConnection();
 		
